@@ -26,10 +26,10 @@ fn start_namespace_(container_args: ContainerArgs) {
 
 fn main() {
     // Create root dir for containers
-    fs::create_dir_all("/tmp/asdf").unwrap();
+    fs::create_dir_all("/tmp/crp").unwrap();
 
     // Create container dir
-    let path: std::path::PathBuf = Path::new("/tmp/asdf").join(Uuid::new_v4().to_string());
+    let path: std::path::PathBuf = Path::new("/tmp/crp").join(Uuid::new_v4().to_string());
     fs::create_dir(&path).unwrap();
     
     // Unpack ubuntu tar

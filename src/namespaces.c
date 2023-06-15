@@ -41,7 +41,7 @@ int start_namespace(void *container_path, void *init_args)
 }
 
 // int main(int argc, char** args) {
-//   char* c = "/tmp/asdf/3f0fbc22-d733-4fd3-9b1e-98811041a752/ce1d66bff996cbccd4d52b704e94469aef49119d98c2e7dea6b279166f6789ce";
+//   char* c = "/tmp/crp/3f0fbc22-d733-4fd3-9b1e-98811041a752/ce1d66bff996cbccd4d52b704e94469aef49119d98c2e7dea6b279166f6789ce";
 //   char* i = "ls -alh";
 //   start_namespace(c, i);
 //   return 0;
