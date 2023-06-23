@@ -10,7 +10,7 @@
 typedef struct
 {
   char *init_args;
-  char *container_path;
+  char *path;
 } ContainerArgs;
 
 static char child_stack[1048576];
@@ -18,17 +18,17 @@ static char child_stack[1048576];
 static int child_fn(ContainerArgs *containerArgs)
 {
   printf("PID: %ld\n", (long)getpid());
-  chroot(containerArgs->container_path);
+  chroot(containerArgs->path);
   chdir("/");
   system((const char*) containerArgs->init_args);
   return 0;
 }
 
-int start_namespace(void *container_path, void *init_args)
+int start_namespace_c(void *path, void *init_args)
 {
   ContainerArgs *containerArgs;
-  containerArgs = malloc(sizeof(strlen(container_path)) + 36);
-  containerArgs->container_path = container_path;
+  containerArgs = malloc(sizeof(strlen(path)) + 36);
+  containerArgs->path = path;
   containerArgs->init_args = init_args;
   pid_t child_pid = clone(
       child_fn,
