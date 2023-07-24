@@ -1,10 +1,12 @@
-use uuid::Uuid;
 use std::path::Path;
 use std::fs;
 use tar::Archive;
 
 const UBUNTU_LAYER: &str = "ce1d66bff996cbccd4d52b704e94469aef49119d98c2e7dea6b279166f6789ce";
 
+extern "C" {
+    fn start_namespace_c(id: *const u8, init_args: *const u8);
+}
 
 fn start_namespace(id: String, init_args: String) {
     unsafe {
